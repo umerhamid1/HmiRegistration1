@@ -69,7 +69,7 @@ class LogInViewController: UIViewController {
         let param = [ "mobile" : phoneNumberTextField.text! , "password" : passwordTextField.text!]
             
               //self.view.hideAllToasts()
-        let result =   getLoginDetail(url: LOGIN_URL, parameters: param)
+         getLoginDetail(url: LOGIN_URL, parameters: param)
        
             
   
@@ -152,7 +152,7 @@ class LogInViewController: UIViewController {
                 style.messageColor = .white
                 self.view.makeToast("Error : \(response.result.error?.localizedDescription)", duration: 3.0, position: .center, style: style)
                 
-                print("Error : \(response.result.error?.localizedDescription)")
+               // print("Error : \(response.result.error?.localizedDescription)")
               
                 
                }
@@ -245,4 +245,6 @@ class Validation{
            }
         
 }
+
+// here is something
 
