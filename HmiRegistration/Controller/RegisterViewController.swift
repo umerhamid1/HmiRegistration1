@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
     
@@ -58,6 +59,9 @@ class RegisterViewController: UIViewController {
         }else if password == false {
             displayAlertMessage(messageToDisplay: "password should contain alteast one number and strings")
         }else{
+
+            self.view.makeToastActivity(.center)
+            
             let param = [ "name" : nameTextField.text! , "mobile" :mobileTextField.text!, "password" : passwordTextField.text! , "email" : emailTextField.text!]
             
             getRegistraionDetail(url: REGISTRATION_URL, parameters: param)
@@ -81,7 +85,7 @@ class RegisterViewController: UIViewController {
            var style = ToastStyle()
            style.messageColor = .white
            
-           var request : Bool = false
+          
               Alamofire.request(url, method: .post , parameters: parameters).responseJSON {
                   response in
                   if response.result.isSuccess {
@@ -98,9 +102,11 @@ class RegisterViewController: UIViewController {
                    msg = loginJSON["message"].stringValue
                    if uID != "" {
 
-                        self.view.makeToast("Registraion  SuccesFul", duration: 2.0, position: .bottom, style: style)
+                    
+                    self.view.hideToastActivity()
+                    self.view.makeToast("Registraion  SuccesFul", duration: 1.0, position: .bottom, style: style)
 
-                       let secondsToDelay = 2.0
+                    let secondsToDelay = 0.5
                        DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
                           //print("This message is delayed")
                           // Put any code you want to be delayed here
@@ -113,17 +119,22 @@ class RegisterViewController: UIViewController {
 
 
 
-                   }else if msg != "" {
+                   }
+                   else if msg != "" {
+                    
+                        self.view.hideToastActivity()
                         self.view.makeToast("Error : \(msg)", duration: 4.0, position: .bottom, style: style)
                    }
 
                 
                      
                   }else{
-                    request = false
+                  
                    
                    var style = ToastStyle()
                    style.messageColor = .white
+                    
+                    self.view.hideToastActivity()
                    self.view.makeToast("Error : \(response.result.error?.localizedDescription)", duration: 3.0, position: .center, style: style)
                    
                  
@@ -135,14 +146,7 @@ class RegisterViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToLogin"{
-            
-            
-            
-            //let welcomeVC = segue.destination as! RegisterViewController
-            
-            
-         //   welcomeVC.userName = self.userName
-            
+
             
             
         }

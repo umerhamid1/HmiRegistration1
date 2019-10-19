@@ -26,7 +26,10 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var mainView: UIImageView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        
 
 
     }
@@ -34,6 +37,8 @@ class LogInViewController: UIViewController {
 
     @IBAction func loginButoonPressed(_ sender: Any) {
         
+        
+       
         let v = Validation()
         
 
@@ -55,45 +60,27 @@ class LogInViewController: UIViewController {
         }else{
             
             
-       //let param = [ "mobile" : "03452932125" ,"password" : "ABCdefgh12345!" ]
-       
+      
+        self.view.makeToastActivity(.center)
               
             
             
             
         let param = [ "mobile" : phoneNumberTextField.text! , "password" : passwordTextField.text!]
             
-            
+              //self.view.hideAllToasts()
         let result =   getLoginDetail(url: LOGIN_URL, parameters: param)
        
             
-            // here is username
-//            if result.0 != "" {
-//
-//                print("user name is start \(result.0)")
-//                self.view.makeToast("Login SuccesFully", duration: 2.0, position: .center, style: style)
-//                performSegue(withIdentifier: "goToWelcome", sender: self)
-//
-//            }else if result.1 != "" { // here is error msg..
-//                print("user name is start \(result.1)")
-//                self.view.makeToast("Error : \(result.1)", duration: 3.0, position: .center, style: style)
-//            }
-//
+  
+
         }
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWelcome" {
-            
-            
-            
-            let welcomeVC = segue.destination as! WelcomViewController
-            
-            
-         //   welcomeVC.userName = self.userName
-            
-            
+     
             
         }
     }
@@ -103,20 +90,20 @@ class LogInViewController: UIViewController {
        //let param = ["name" : "sheikh aman", "mobile" : "03452932125" , "password" : "ABCdefgh12345!@"  , "email" : "smomerrock1947@yahoo.com"]
           
     
-    
-    
+   
+         
 
     // present the toast with the new style
    
   //  var dg = DispatchGroup()
-       func getLoginDetail (url : String , parameters : [String : String]) -> (String , String)   {
+       func getLoginDetail (url : String , parameters : [String : String])    {
         
         var userName = ""
         var msg = ""
         var style = ToastStyle()
         style.messageColor = .white
-        
-        var request : Bool = false
+        //  self.view.hideAllToasts()
+      
            Alamofire.request(url, method: .post , parameters: parameters).responseJSON {
                response in
                if response.result.isSuccess {
@@ -131,38 +118,35 @@ class LogInViewController: UIViewController {
                 print(loginJSON)
                 userName = loginJSON["name"].stringValue
                 msg = loginJSON["message"].stringValue
+                // self.view.hideAllToasts()
                 if userName != "" {
-                    SVProgressHUD.show()
-                     self.view.makeToast("Login SuccesFully", duration: 2.0, position: .center, style: style)
+                   
+                    self.view.hideToastActivity()
+                     self.view.makeToast("Login SuccesFully", duration: 1.0, position: .bottom, style: style)
                     
-                    let secondsToDelay = 2.0
+                    let secondsToDelay = 0.5
                     DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
                        print("This message is delayed")
                        // Put any code you want to be delayed here
-                        SVProgressHUD.dismiss()
+                       
                         self.performSegue(withIdentifier: "goToWelcome", sender: self)
                     }
                    
-                
-                    
-               
-                        
-                    
+     
                     
                 }else if msg != "" {
-                     self.view.makeToast("Error : \(msg)", duration: 4.0, position: .center, style: style)
+                  
+                    
+                    self.view.hideToastActivity()
+                     self.view.makeToast("Error : \(msg)", duration: 4.0, position: .bottom, style: style)
                 }
                 
              
-                //print("here is user Name : \(self.userName)")
-                //print("here is msg : \(self.msg)")
-                //SVProgressHUD.dismiss()
-               // self.view.makeToast("Login SuccesFully", duration: 1.5, position: .center, style: style)
+              
                
-                //self.performSegue(withIdentifier: "goToWelcome", sender: self)
-                   request = true
                }else{
-                 request = false
+                  
+                  self.view.hideToastActivity()
                 
                 var style = ToastStyle()
                 style.messageColor = .white
@@ -173,7 +157,7 @@ class LogInViewController: UIViewController {
                 
                }
            }
-        return (userName , msg)
+        
        }
     
     

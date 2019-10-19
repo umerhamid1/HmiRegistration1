@@ -16,7 +16,6 @@
 		3DFBD0A9235A36D40021FE17 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBD0A8235A36D40021FE17 /* LogInViewController.swift */; };
 		3DFBD0AB235A36FA0021FE17 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBD0AA235A36FA0021FE17 /* RegisterViewController.swift */; };
 		3DFBD0AD235A372D0021FE17 /* WelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBD0AC235A372D0021FE17 /* WelcomViewController.swift */; };
-		3DFBD0AF235A44F30021FE17 /* Login1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFBD0AE235A44F30021FE17 /* Login1ViewController.swift */; };
 		67E0F463C0DBCE501CFD1D40 /* Pods_HmiRegistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFCDCF8245D0D9983D89D36 /* Pods_HmiRegistration.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		3DFBD0A8235A36D40021FE17 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3DFBD0AA235A36FA0021FE17 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3DFBD0AC235A372D0021FE17 /* WelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomViewController.swift; sourceTree = "<group>"; };
-		3DFBD0AE235A44F30021FE17 /* Login1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login1ViewController.swift; sourceTree = "<group>"; };
 		6ACDB71BA74CD86AA25548C7 /* Pods-HmiRegistration.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HmiRegistration.release.xcconfig"; path = "Target Support Files/Pods-HmiRegistration/Pods-HmiRegistration.release.xcconfig"; sourceTree = "<group>"; };
 		9A159219F260BDFEED3775F0 /* Pods-HmiRegistration.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HmiRegistration.debug.xcconfig"; path = "Target Support Files/Pods-HmiRegistration/Pods-HmiRegistration.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,7 +86,6 @@
 				3DFBD0A8235A36D40021FE17 /* LogInViewController.swift */,
 				3DFBD0AA235A36FA0021FE17 /* RegisterViewController.swift */,
 				3DFBD0AC235A372D0021FE17 /* WelcomViewController.swift */,
-				3DFBD0AE235A44F30021FE17 /* Login1ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,7 +251,6 @@
 				3DFBD0AB235A36FA0021FE17 /* RegisterViewController.swift in Sources */,
 				3DF4B6A4235A29890083B0AD /* ViewController.swift in Sources */,
 				3DF4B6A0235A29890083B0AD /* AppDelegate.swift in Sources */,
-				3DFBD0AF235A44F30021FE17 /* Login1ViewController.swift in Sources */,
 				3DF4B6A2235A29890083B0AD /* SceneDelegate.swift in Sources */,
 				3DFBD0AD235A372D0021FE17 /* WelcomViewController.swift in Sources */,
 			);
